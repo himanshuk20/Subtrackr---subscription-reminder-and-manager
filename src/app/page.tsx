@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   return (
@@ -43,7 +44,17 @@ export default function Home() {
             <div className="relative -mx-3 mt-3 bg-[rgb(229,231,235)] py-4">
               <div className="max-w-6xl mx-auto px-3">
                 <p className="text-sm sm:text-base font-medium text-black text-center">
-                  Ever faced accidental billings due to autopay?
+                  <Typewriter text="Ever faced accidental billings due to autopay?" />
+                </p>
+                <p className="mt-2 text-xs sm:text-sm text-black/80 text-center">
+                  <a
+                    href="https://www.globenewswire.com/news-release/2016/03/21/1240985/0/en/Hiatus-Survey-62-of-Consumers-Waste-Money-on-Unwanted-Subscriptions-Because-They-Don-t-Cancel-Automatic-Renewals.html?utm_source=chatgpt.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:opacity-80"
+                  >
+                    over 60% consumers lose money because they forget to cancel autopay
+                  </a>
                 </p>
               </div>
             </div>
@@ -144,5 +155,41 @@ function FeatureCard({ icon, title, desc }: { icon: string; title: string; desc:
         <p className="text-sm opacity-80">{desc}</p>
       </div>
     </div>
+  );
+}
+
+function Typewriter({
+  text,
+  typingSpeed = 75,
+  deletingSpeed = 40,
+  pause = 1200,
+}: {
+  text: string;
+  typingSpeed?: number;
+  deletingSpeed?: number;
+  pause?: number;
+}) {
+  const [display, setDisplay] = useState("");
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    let t: ReturnType<typeof setTimeout>;
+    if (!deleting && display.length < text.length) {
+      t = setTimeout(() => setDisplay(text.slice(0, display.length + 1)), typingSpeed);
+    } else if (!deleting && display.length === text.length) {
+      t = setTimeout(() => setDeleting(true), pause);
+    } else if (deleting && display.length > 0) {
+      t = setTimeout(() => setDisplay(text.slice(0, display.length - 1)), deletingSpeed);
+    } else if (deleting && display.length === 0) {
+      t = setTimeout(() => setDeleting(false), 400);
+    }
+    return () => clearTimeout(t);
+  }, [display, deleting, text, typingSpeed, deletingSpeed, pause]);
+
+  return (
+    <span>
+      {display}
+      <span className="ml-0.5 inline-block w-0.5 h-5 align-middle bg-black/70 animate-pulse" />
+    </span>
   );
 }
