@@ -4,8 +4,8 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="min-h-dvh bg-gradient-to-b from-muted to-background">
-      <header className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+    <div className="min-h-dvh bg-background">
+      <header className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between border-b">
         <div className="flex items-center gap-3">
           <img
             src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/ChatGPT%20Image%20Sep%2017,%202025,%2001_12_54%20PM-1758095855036.png"
@@ -15,26 +15,50 @@ export default function Home() {
           <span className="text-xl font-semibold">subtrackr</span>
         </div>
         <nav className="flex items-center gap-3">
-          <Link href="/dashboard" className="px-3 py-2 rounded-md border">Dashboard</Link>
-          <Link href="/pricing" className="px-3 py-2 rounded-md bg-foreground text-background">Pricing</Link>
+          <Link href="#features" className="px-3 py-2 rounded-md hover:bg-accent">Features</Link>
+          <Link href="/pricing" className="px-3 py-2 rounded-md hover:bg-accent">Pricing</Link>
+          <Link href="/sign-in" className="px-3 py-2 rounded-md bg-foreground text-background">Sign In</Link>
         </nav>
       </header>
 
       <main className="max-w-6xl mx-auto px-6 py-10 grid gap-10">
-        <section className="grid lg:grid-cols-2 gap-8 items-center">
-          <div className="grid gap-4">
-            <h1 className="text-4xl sm:text-5xl font-bold leading-tight">Ever faced:</h1>
-            <h2 className="text-2xl sm:text-3xl font-semibold leading-tight">Accidental billings due to autopay?</h2>
-            <p className="text-lg opacity-80">
-              Get multiple reminders of future billings <span className="text-[rgb(147_197_253)]">directly on your WhatsApp</span>.
+        <section className="grid gap-8 items-center">
+          <div className="grid place-items-center text-center gap-5">
+            <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 bg-yellow-300/90 text-sm font-medium text-black">
+              <span className="rounded-full bg-black/80 text-white px-2 py-0.5 text-xs">Ever faced</span>
+              <span>Accidental billings due to autopay?</span>
+            </div>
+            <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight tracking-tight">
+              Get multiple reminders of future billings {" "}
+              <span className="text-[rgb(147_197_253)]">directly on your WhatsApp</span>
+            </h1>
+            <p className="max-w-3xl text-base sm:text-lg opacity-80">
+              Take control of your subscriptions with smart WhatsApp reminders, spending insights, and money-saving recommendations.
             </p>
-            <div className="flex flex-wrap gap-3">
-              <Link href="/sign-up" className="px-4 py-2 rounded-md bg-foreground text-background">Sign up</Link>
-              <Link href="/sign-in" className="px-4 py-2 rounded-md border">Sign in</Link>
-              <Link href="#demo" className="px-4 py-2 rounded-md border">See demo</Link>
-              <Link href="/pricing" className="px-4 py-2 rounded-md border">See pricing</Link>
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <Link href="/sign-up" className="px-5 py-3 rounded-md bg-foreground text-background font-medium">
+                Start Free Trial
+              </Link>
+              <Link href="#demo" className="px-5 py-3 rounded-md border font-medium">
+                Watch Demo
+              </Link>
             </div>
           </div>
+
+          {/* Features section */}
+          <section id="features" className="pt-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-center">Why Choose subtrackr?</h2>
+            <p className="mt-2 text-center opacity-80 max-w-2xl mx-auto">
+              Our intelligent platform helps you save money and stay in control of your subscription spending.
+            </p>
+            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              <FeatureCard icon="W" title="WhatsApp Reminders" desc="Get multiple reminders on WhatsApp for your future billings of subscriptions." />
+              <FeatureCard icon="$" title="Track Spending" desc="Keep track of spend on subscriptions with detailed insights." />
+              <FeatureCard icon="💰" title="Save Money" desc="Automatically identify and cancel unused or costly subscriptions." />
+              <FeatureCard icon="🧠" title="Smart Decisions" desc="Recommendations that help you decide what to keep or cancel." />
+            </div>
+          </section>
+
           <div id="demo" className="grid gap-3">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <DemoCard name="Netflix" amount={15.99} date="in 5 days" color="#E50914" />
@@ -64,6 +88,20 @@ function DemoCard({ name, amount, date, color }: { name: string; amount: number;
           <div className="text-2xl font-bold">${amount.toFixed(2)}</div>
           <div className="text-xs opacity-90">monthly</div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+function FeatureCard({ icon, title, desc }: { icon: string; title: string; desc: string }) {
+  return (
+    <div className="rounded-xl border p-5 grid gap-3">
+      <div className="h-10 w-10 rounded-lg bg-foreground text-background grid place-items-center text-lg font-bold">
+        {icon}
+      </div>
+      <div className="grid gap-1">
+        <h3 className="font-semibold">{title}</h3>
+        <p className="text-sm opacity-80">{desc}</p>
       </div>
     </div>
   );
