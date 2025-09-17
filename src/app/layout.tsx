@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "subtrackr",
   description: "Subtrackr – never miss a billing date again. In-app and WhatsApp reminders.",
   icons: {
-    icon: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/ChatGPT%20Image%20Sep%2017,%202025,%2001_12_54%20PM-1758095855036.png",
+    icon: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/ChatGPT%20Image%20Sep%2018,%202025,%2012_40_24%20AM-1758136332056.png",
   },
 };
 

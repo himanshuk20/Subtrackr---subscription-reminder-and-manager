@@ -8,7 +8,7 @@ export default function Home() {
       <header className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between border-b">
         <div className="flex items-center gap-3">
           <img
-            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/ChatGPT%20Image%20Sep%2017,%202025,%2001_12_54%20PM-1758095855036.png"
+            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/ChatGPT%20Image%20Sep%2018,%202025,%2012_40_24%20AM-1758136332056.png"
             alt="subtrackr logo"
             className="h-9 w-9 rounded-lg object-cover"
           />
@@ -43,6 +43,18 @@ export default function Home() {
                 Watch Demo
               </Link>
             </div>
+            <div className="w-full grid gap-6 mt-4">
+              <img
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/Screenshot%202025-09-17%20235826-1758134243753.png"
+                alt="Dashboard preview"
+                className="w-full rounded-xl border"
+              />
+              <img
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/Screenshot%202025-09-18%20000506-1758134324533.png"
+                alt="Add subscription preview"
+                className="w-full rounded-xl border"
+              />
+            </div>
           </div>
 
           {/* Features section */}
@@ -56,6 +68,21 @@ export default function Home() {
               <FeatureCard icon="$" title="Track Spending" desc="Keep track of spend on subscriptions with detailed insights." />
               <FeatureCard icon="💰" title="Save Money" desc="Automatically identify and cancel unused or costly subscriptions." />
               <FeatureCard icon="🧠" title="Smart Decisions" desc="Recommendations that help you decide what to keep or cancel." />
+            </div>
+            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              <FeatureCard icon="📝" title="Notes on Cards" desc="Note for every subscription visible on your sub-card." />
+              <FeatureCard icon="✏️" title="Quick Actions" desc="Edit, mark paid, and delete your data easily." />
+              <FeatureCard icon="⭐" title="Only Subtracker You Need" desc="The only Subtracker you'll ever need." />
+              <FeatureCard icon="🚀" title="Just the Best" desc="Just the best." />
+            </div>
+            <div className="mt-10 rounded-xl p-6 text-center" style={{ backgroundColor: "rgb(147 197 253)" }}>
+              <h3 className="text-xl sm:text-2xl font-semibold">What to do when you have too many subscriptions?</h3>
+              <p className="mt-2">Buy one more subscription to keep all your other subscriptions in track!</p>
+              <div className="mt-4">
+                <Link href="/sign-up" className="inline-block px-5 py-3 rounded-md bg-foreground text-background font-medium">
+                  Start Free Trial
+                </Link>
+              </div>
             </div>
           </section>
 

@@ -25,21 +25,38 @@ export default function SubscriptionForm({
   onCancel: () => void;
   onSave: (data: Omit<Subscription, "id">) => void;
 }) {
-  const [service, setService] = useState(initial?.service ?? "Netflix");
+  const popularLabels = popular.map((p) => p.label);
+  const initialIsPopular = initial?.service ? popularLabels.includes(initial.service) : true;
+  const [serviceChoice, setServiceChoice] = useState<string>(
+    initialIsPopular ? initial?.service ?? "Netflix" : "Custom"
+  );
+  const [customService, setCustomService] = useState<string>(
+    !initialIsPopular ? initial?.service ?? "" : ""
+  );
   const [amount, setAmount] = useState(initial?.amount?.toString() ?? "9.99");
   const [currency, setCurrency] = useState(initial?.currency ?? "USD");
-  const [cycle, setCycle] = useState<string>(typeof initial?.cycle === "string" ? (initial?.cycle as string) : (initial?.cycle && typeof initial.cycle === "object" ? String(initial.cycle.days) : "monthly"));
-  const [nextBillingDate, setNextBillingDate] = useState(
-    initial?.nextBillingDate ? initial.nextBillingDate.substring(0, 10) : new Date().toISOString().substring(0, 10)
+  const [cycle, setCycle] = useState<string>(
+    typeof initial?.cycle === "string"
+      ? (initial?.cycle as string)
+      : initial?.cycle && typeof initial.cycle === "object"
+      ? String(initial.cycle.days)
+      : "monthly"
   );
-  const [color, setColor] = useState(initial?.color ?? popular.find(p => p.label === service)?.color ?? "#6366f1");
+  const [nextBillingDate, setNextBillingDate] = useState(
+    initial?.nextBillingDate
+      ? initial.nextBillingDate.substring(0, 10)
+      : new Date().toISOString().substring(0, 10)
+  );
+  const [color, setColor] = useState(
+    initial?.color ?? popular.find((p) => p.label === serviceChoice)?.color ?? "#6366f1"
+  );
   const [note, setNote] = useState(initial?.note ?? "");
   const [phone, setPhone] = useState(initial?.phone ?? "");
 
   useEffect(() => {
-    const match = popular.find((p) => p.label === service);
+    const match = popular.find((p) => p.label === serviceChoice);
     if (match) setColor(match.color);
-  }, [service]);
+  }, [serviceChoice]);
 
   const isCustomCycle = useMemo(() => !(cycle === "monthly" || cycle === "yearly"), [cycle]);
 
@@ -48,7 +65,7 @@ export default function SubscriptionForm({
       onSubmit={(e) => {
         e.preventDefault();
         onSave({
-          service,
+          service: serviceChoice === "Custom" ? (customService.trim() || "Custom") : serviceChoice,
           amount: parseFloat(amount || "0"),
           currency,
           cycle: parseCycle(cycle),
@@ -63,14 +80,25 @@ export default function SubscriptionForm({
       <div className="grid gap-1">
         <label className="text-sm">Service</label>
         <div className="flex gap-2">
-          <select value={service} onChange={(e) => setService(e.target.value)} className="w-full rounded-md border bg-transparent px-3 py-2">
+          <select
+            value={popularLabels.includes(serviceChoice) ? serviceChoice : "Custom"}
+            onChange={(e) => setServiceChoice(e.target.value)}
+            className="w-full rounded-md border bg-transparent px-3 py-2"
+          >
             {popular.map((p) => (
-              <option key={p.label} value={p.label}>{p.label}</option>
+              <option key={p.label} value={p.label}>
+                {p.label}
+              </option>
             ))}
             <option value="Custom">Custom</option>
           </select>
-          {service === "Custom" ? (
-            <input value={service} onChange={(e) => setService(e.target.value)} placeholder="Enter name" className="w-40 rounded-md border bg-transparent px-3 py-2" />
+          {serviceChoice === "Custom" ? (
+            <input
+              value={customService}
+              onChange={(e) => setCustomService(e.target.value)}
+              placeholder="Enter name"
+              className="w-40 rounded-md border bg-transparent px-3 py-2"
+            />
           ) : null}
         </div>
       </div>
