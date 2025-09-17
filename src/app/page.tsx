@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="min-h-dvh bg-background">
+    <div className="min-h-dvh bg-background overflow-x-hidden">
       <header className="max-w-6xl mx-auto px-3 py-3 flex items-center justify-between border-b">
         <div className="flex items-center gap-3">
           <img
@@ -21,7 +21,7 @@ export default function Home() {
         </nav>
       </header>
 
-      <main className="max-w-6xl mx-auto px-4 py-6 grid gap-6">
+      <main className="max-w-6xl mx-auto px-3 py-6 grid gap-6">
         <section className="grid gap-8 items-center">
           <div className="grid place-items-center text-center gap-5">
             <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight tracking-tight">
@@ -41,7 +41,7 @@ export default function Home() {
             </div>
             {/* Full-width light gray band below CTA */}
             <div className="w-[100vw] relative left-[calc(50%-50vw)] mt-3 bg-[rgb(229,231,235)] py-4">
-              <div className="max-w-6xl mx-auto px-4">
+              <div className="max-w-6xl mx-auto px-3">
                 <p className="text-sm sm:text-base font-medium text-black text-center">
                   Ever faced accidental billings due to autopay?
                 </p>
@@ -94,7 +94,7 @@ export default function Home() {
             </div>
             {/* Full-width blue CTA section */}
             <div className="mt-10 w-[100vw] relative left-[calc(50%-50vw)] bg-[rgb(147,197,253)]">
-              <div className="max-w-6xl mx-auto px-4 py-8 text-center">
+              <div className="max-w-6xl mx-auto px-3 py-8 text-center">
                 <h3 className="text-xl sm:text-2xl font-semibold">What to do when you have too many subscriptions?</h3>
                 <p className="mt-2">Buy one more subscription to keep all your other subscriptions in track!</p>
                 <div className="mt-4">
@@ -111,7 +111,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="max-w-6xl mx-auto px-4 py-6 opacity-80 text-sm">© {new Date().getFullYear()} subtrackr</footer>
+      <footer className="max-w-6xl mx-auto px-3 py-6 opacity-80 text-sm">© {new Date().getFullYear()} subtrackr</footer>
     </div>
   );
 }
