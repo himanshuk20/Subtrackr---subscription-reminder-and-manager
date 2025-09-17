@@ -40,7 +40,7 @@ export default function Home() {
               </Link>
             </div>
             {/* Full-width light gray band below CTA */}
-            <div className="w-[100vw] relative left-[calc(50%-50vw)] mt-3 bg-[rgb(229,231,235)] py-4">
+            <div className="relative -mx-3 mt-3 bg-[rgb(229,231,235)] py-4">
               <div className="max-w-6xl mx-auto px-3">
                 <p className="text-sm sm:text-base font-medium text-black text-center">
                   Ever faced accidental billings due to autopay?
@@ -93,7 +93,7 @@ export default function Home() {
               <FeatureCard icon="🚀" title="Just the Best" desc="Just the best." />
             </div>
             {/* Full-width blue CTA section */}
-            <div className="mt-10 w-[100vw] relative left-[calc(50%-50vw)] bg-[rgb(147,197,253)]">
+            <div className="mt-10 relative -mx-3 bg-[rgb(147,197,253)]">
               <div className="max-w-6xl mx-auto px-3 py-8 text-center">
                 <h3 className="text-xl sm:text-2xl font-semibold">What to do when you have too many subscriptions?</h3>
                 <p className="mt-2">Buy one more subscription to keep all your other subscriptions in track!</p>
