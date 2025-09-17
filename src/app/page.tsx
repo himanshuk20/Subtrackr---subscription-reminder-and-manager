@@ -39,10 +39,15 @@ export default function Home() {
                 Watch Demo
               </Link>
             </div>
-            <div className="mt-3 inline-block rounded-md bg-[#e5e7eb] px-4 py-2 text-sm font-medium text-black">
-              Ever faced accidental billings due to autopay?
+            {/* Full-width light gray band below CTA */}
+            <div className="w-[100vw] relative left-[calc(50%-50vw)] mt-3 bg-[rgb(229,231,235)] py-4">
+              <div className="max-w-6xl mx-auto px-4">
+                <p className="text-sm sm:text-base font-medium text-black text-center">
+                  Ever faced accidental billings due to autopay?
+                </p>
+              </div>
             </div>
-            <div className="w-full grid gap-6 mt-2">
+            <div className="w-full grid gap-6 mt-4">
               <p className="text-base sm:text-lg font-medium opacity-90 text-center">
                 Manage All Your Subscriptions in one place with whatsapp and inapp reminders
               </p>
@@ -56,12 +61,13 @@ export default function Home() {
                   <img
                     src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/Screenshot%202025-09-18%20000506-1758134324533.png"
                     alt="Add subscription preview"
-                    className="w-full max-w-md rounded-xl border"
+                    className="w-full max-w-sm rounded-xl border"
                   />
                 </div>
                 <div className="text-left sm:text-left">
-                  <p className="text-base sm:text-lg opacity-90">
-                    Add Your Subscription effortlessly with any currency you use, custom billing cycle, card color of your choice, and your whatsapp number for sending you multiple reminder before your billing, subtrackr is not only superior its the best.
+                  <h3 className="text-2xl sm:text-3xl font-bold">Add Your Subscription effortlessly</h3>
+                  <p className="mt-2 text-base sm:text-lg opacity-90">
+                    Any currency you use, custom billing cycle, card color of your choice, any notes you want to add and your whatsapp number for sending you multiple reminder before your billing, subtrackr is not only superior its the best.
                   </p>
                 </div>
               </div>
@@ -86,16 +92,19 @@ export default function Home() {
               <FeatureCard icon="⭐" title="Only Subtracker You Need" desc="The only Subtracker you'll ever need." />
               <FeatureCard icon="🚀" title="Just the Best" desc="Just the best." />
             </div>
-            <div className="mt-10 rounded-xl p-6 text-center" style={{ backgroundColor: "rgb(147 197 253)" }}>
-              <h3 className="text-xl sm:text-2xl font-semibold">What to do when you have too many subscriptions?</h3>
-              <p className="mt-2">Buy one more subscription to keep all your other subscriptions in track!</p>
-              <div className="mt-4">
-                <Link
-                  href="/sign-up"
-                  className="inline-block px-5 py-3 rounded-md font-medium text-black bg-[rgb(147_197_253)]"
-                >
-                  Start Free Trial
-                </Link>
+            {/* Full-width blue CTA section */}
+            <div className="mt-10 w-[100vw] relative left-[calc(50%-50vw)] bg-[rgb(147,197,253)]">
+              <div className="max-w-6xl mx-auto px-4 py-8 text-center">
+                <h3 className="text-xl sm:text-2xl font-semibold">What to do when you have too many subscriptions?</h3>
+                <p className="mt-2">Buy one more subscription to keep all your other subscriptions in track!</p>
+                <div className="mt-4">
+                  <Link
+                    href="/sign-up"
+                    className="inline-block px-5 py-3 rounded-md font-medium bg-foreground text-background"
+                  >
+                    Start Free Trial
+                  </Link>
+                </div>
               </div>
             </div>
           </section>
