@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="min-h-dvh bg-background">
-      <header className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between border-b">
+      <header className="max-w-6xl mx-auto px-3 py-3 flex items-center justify-between border-b">
         <div className="flex items-center gap-3">
           <img
             src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/ChatGPT%20Image%20Sep%2018,%202025,%2012_40_24%20AM-1758136332056.png"
@@ -21,13 +21,9 @@ export default function Home() {
         </nav>
       </header>
 
-      <main className="max-w-6xl mx-auto px-6 py-10 grid gap-10">
+      <main className="max-w-6xl mx-auto px-4 py-6 grid gap-6">
         <section className="grid gap-8 items-center">
           <div className="grid place-items-center text-center gap-5">
-            <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 bg-yellow-300/90 text-sm font-medium text-black">
-              <span className="rounded-full bg-black/80 text-white px-2 py-0.5 text-xs">Ever faced</span>
-              <span>Accidental billings due to autopay?</span>
-            </div>
             <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight tracking-tight">
               Get multiple reminders of future billings {" "}
               <span className="text-[rgb(147_197_253)]">directly on your WhatsApp</span>
@@ -39,26 +35,41 @@ export default function Home() {
               <Link href="/sign-up" className="px-5 py-3 rounded-md bg-foreground text-background font-medium">
                 Start Free Trial
               </Link>
-              <Link href="#demo" className="px-5 py-3 rounded-md border font-medium">
+              <Link href="#features" className="px-5 py-3 rounded-md border font-medium">
                 Watch Demo
               </Link>
             </div>
-            <div className="w-full grid gap-6 mt-4">
+            <div className="mt-3 inline-block rounded-md bg-[#e5e7eb] px-4 py-2 text-sm font-medium text-black">
+              Ever faced accidental billings due to autopay?
+            </div>
+            <div className="w-full grid gap-6 mt-2">
+              <p className="text-base sm:text-lg font-medium opacity-90 text-center">
+                Manage All Your Subscriptions in one place with whatsapp and inapp reminders
+              </p>
               <img
                 src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/Screenshot%202025-09-17%20235826-1758134243753.png"
                 alt="Dashboard preview"
                 className="w-full rounded-xl border"
               />
-              <img
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/Screenshot%202025-09-18%20000506-1758134324533.png"
-                alt="Add subscription preview"
-                className="w-full rounded-xl border"
-              />
+              <div className="grid gap-6 sm:grid-cols-2 items-center">
+                <div className="flex justify-start">
+                  <img
+                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/Screenshot%202025-09-18%20000506-1758134324533.png"
+                    alt="Add subscription preview"
+                    className="w-full max-w-md rounded-xl border"
+                  />
+                </div>
+                <div className="text-left sm:text-left">
+                  <p className="text-base sm:text-lg opacity-90">
+                    Add Your Subscription effortlessly with any currency you use, custom billing cycle, card color of your choice, and your whatsapp number for sending you multiple reminder before your billing, subtrackr is not only superior its the best.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Features section */}
-          <section id="features" className="pt-6">
+          <section id="features" className="pt-4">
             <h2 className="text-3xl sm:text-4xl font-bold text-center">Why Choose subtrackr?</h2>
             <p className="mt-2 text-center opacity-80 max-w-2xl mx-auto">
               Our intelligent platform helps you save money and stay in control of your subscription spending.
@@ -79,26 +90,19 @@ export default function Home() {
               <h3 className="text-xl sm:text-2xl font-semibold">What to do when you have too many subscriptions?</h3>
               <p className="mt-2">Buy one more subscription to keep all your other subscriptions in track!</p>
               <div className="mt-4">
-                <Link href="/sign-up" className="inline-block px-5 py-3 rounded-md bg-foreground text-background font-medium">
+                <Link
+                  href="/sign-up"
+                  className="inline-block px-5 py-3 rounded-md font-medium text-black bg-[rgb(147_197_253)]"
+                >
                   Start Free Trial
                 </Link>
               </div>
             </div>
           </section>
-
-          <div id="demo" className="grid gap-3">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <DemoCard name="Netflix" amount={15.99} date="in 5 days" color="#E50914" />
-              <DemoCard name="Spotify" amount={9.99} date="in 12 days" color="#1DB954" />
-              <DemoCard name="Adobe" amount={54.99} date="in 2 days" color="#F44336" />
-              <DemoCard name="iCloud" amount={2.99} date="in 20 days" color="#0A84FF" />
-            </div>
-            <p className="text-sm opacity-70">Demo data. Add your own in the dashboard.</p>
-          </div>
         </section>
       </main>
 
-      <footer className="max-w-6xl mx-auto px-6 py-10 opacity-80 text-sm">© {new Date().getFullYear()} subtrackr</footer>
+      <footer className="max-w-6xl mx-auto px-4 py-6 opacity-80 text-sm">© {new Date().getFullYear()} subtrackr</footer>
     </div>
   );
 }
