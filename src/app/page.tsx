@@ -18,6 +18,7 @@ export default function Home() {
         <nav className="flex items-center gap-3">
           <Link href="#features" className="px-3 py-2 rounded-md hover:bg-accent">Features</Link>
           <Link href="/pricing" className="px-3 py-2 rounded-md hover:bg-accent">Pricing</Link>
+          <Link href="#faqs" className="px-3 py-2 rounded-md hover:bg-accent">FAQ</Link>
           <Link href="/sign-in" className="px-3 py-2 rounded-md bg-foreground text-background">Sign In</Link>
         </nav>
       </header>
@@ -109,7 +110,7 @@ export default function Home() {
               </div>
 
               {/* Right: FAQs */}
-              <div>
+              <div id="faqs">
                 <h3 className="text-2xl sm:text-3xl font-bold">FAQs</h3>
                 <div className="mt-4 space-y-5">
                   <div>
