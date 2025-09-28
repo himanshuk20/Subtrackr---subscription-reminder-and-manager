@@ -91,17 +91,69 @@ export default function Home() {
             <p className="mt-2 text-center opacity-80 max-w-2xl mx-auto">
               Our intelligent platform helps you save money and stay in control of your subscription spending.
             </p>
-            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              <FeatureCard icon="W" title="WhatsApp Reminders" desc="Get multiple reminders on WhatsApp for your future billings of subscriptions." />
-              <FeatureCard icon="$" title="Track Spending" desc="Keep track of spend on subscriptions with detailed insights." />
-              <FeatureCard icon="💰" title="Save Money" desc="Automatically identify and cancel unused or costly subscriptions." />
-              <FeatureCard icon="🧠" title="Smart Decisions" desc="Recommendations that help you decide what to keep or cancel." />
-            </div>
-            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              <FeatureCard icon="📝" title="Notes on Cards" desc="Note for every subscription visible on your sub-card." />
-              <FeatureCard icon="✏️" title="Quick Actions" desc="Edit, mark paid, and delete your data easily." />
-              <FeatureCard icon="⭐" title="Only Subtracker You Need" desc="The only Subtracker you'll ever need." />
-              <FeatureCard icon="🚀" title="Just the Best" desc="Just the best." />
+            <div className="mt-8 grid gap-10 lg:grid-cols-2">
+              {/* Left: Features grid(s) */}
+              <div>
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                  <FeatureCard icon="W" title="WhatsApp Reminders" desc="Get multiple reminders on WhatsApp for your future billings of subscriptions." />
+                  <FeatureCard icon="$" title="Track Spending" desc="Keep track of spend on subscriptions with detailed insights." />
+                  <FeatureCard icon="💰" title="Save Money" desc="Automatically identify and cancel unused or costly subscriptions." />
+                  <FeatureCard icon="🧠" title="Smart Decisions" desc="Recommendations that help you decide what to keep or cancel." />
+                </div>
+                <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                  <FeatureCard icon="📝" title="Notes on Cards" desc="Note for every subscription visible on your sub-card." />
+                  <FeatureCard icon="✏️" title="Quick Actions" desc="Edit, mark paid, and delete your data easily." />
+                  <FeatureCard icon="⭐" title="Only Subtracker You Need" desc="The only Subtracker you'll ever need." />
+                  <FeatureCard icon="🚀" title="Just the Best" desc="Just the best." />
+                </div>
+              </div>
+
+              {/* Right: FAQs */}
+              <div>
+                <h3 className="text-2xl sm:text-3xl font-bold">FAQs</h3>
+                <div className="mt-4 space-y-5">
+                  <div>
+                    <p className="font-semibold">1. What does SubTrackr do?</p>
+                    <p className="opacity-80 text-sm sm:text-base">SubTrackr helps you track all your subscriptions in one place (like Netflix, Spotify, Amazon Prime, etc.). It reminds you before renewal so you never forget to cancel or pay late.</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold">2. How will I get reminders?</p>
+                    <p className="opacity-80 text-sm sm:text-base">Free plan → in-app notifications only.<br/>Pro plan → WhatsApp reminders directly on your phone.</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold">3. Can I add any subscription?</p>
+                    <p className="opacity-80 text-sm sm:text-base">Yes! With SubTrackr, you can manually add any service—streaming, gym, broadband, OTT, insurance, or even rent.</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold">4. Is my data safe?</p>
+                    <p className="opacity-80 text-sm sm:text-base">Absolutely. SubTrackr only stores the subscription details you enter. No card or payment info is saved. All data is secured with modern encryption standards.</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold">5. Does SubTrackr charge my subscriptions automatically?</p>
+                    <p className="opacity-80 text-sm sm:text-base">No. SubTrackr only reminds you. You remain in full control of paying or canceling.</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold">6. How much does SubTrackr cost?</p>
+                    <p className="opacity-80 text-sm sm:text-base">In India: Starting from ₹49/year or ₹179/5 years.<br/>International: Starting from $4.99/year.<br/>We also have a free plan with in-app reminders.</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold">7. What happens if I don't upgrade to Pro?</p>
+                    <p className="opacity-80 text-sm sm:text-base">You'll still get unlimited subscription tracking and free in-app notifications. Pro is only for WhatsApp reminders.</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold">8. Does SubTrackr offer lifetime plans?</p>
+                    <p className="opacity-80 text-sm sm:text-base">Yes. You can choose a one-time payment plan (like ₹399 in India / $24.99 international) and get Pro reminders forever.</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold">9. Can SubTrackr track multiple subscriptions?</p>
+                    <p className="opacity-80 text-sm sm:text-base">Yes! You can add and manage unlimited subscriptions in both Free and Pro plans.</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold">10. Who is SubTrackr for?</p>
+                    <p className="opacity-80 text-sm sm:text-base">SubTrackr is for anyone who wants to avoid wasting money on forgotten subscriptions—students, families, professionals, or businesses.</p>
+                  </div>
+                </div>
+              </div>
             </div>
             {/* Full-width blue CTA section */}
             <div className="mt-10 relative -mx-3 bg-[rgb(147,197,253)]">
@@ -186,9 +238,35 @@ function Typewriter({
     return () => clearTimeout(t);
   }, [display, deleting, text, typingSpeed, deletingSpeed, pause]);
 
+  // highlight "autopay" (including partially typed characters) in yellow
+  const target = "autopay";
+  const idx = text.toLowerCase().indexOf(target);
+  const typed = display.length;
+
+  let before = display;
+  let within = "";
+  let after = "";
+
+  if (idx !== -1) {
+    const beforeEnd = Math.min(typed, idx);
+    const withinLen = Math.max(0, Math.min(typed - idx, target.length));
+    const withinEnd = idx + withinLen;
+    before = display.slice(0, beforeEnd);
+    within = withinLen > 0 ? display.slice(idx, withinEnd) : "";
+    after = withinEnd < display.length ? display.slice(withinEnd) : "";
+  }
+
   return (
     <span>
-      {display}
+      {idx === -1 ? (
+        <>{display}</>
+      ) : (
+        <>
+          {before}
+          {within && <span className="text-yellow-500">{within}</span>}
+          {after}
+        </>
+      )}
       <span className="ml-0.5 inline-block w-0.5 h-5 align-middle bg-black/70 animate-pulse" />
     </span>
   );
