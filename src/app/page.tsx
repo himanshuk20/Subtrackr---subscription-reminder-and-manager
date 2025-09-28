@@ -92,22 +92,17 @@ export default function Home() {
             <p className="mt-2 text-center opacity-80 max-w-2xl mx-auto">
               Our intelligent platform helps you save money and stay in control of your subscription spending.
             </p>
-            <div className="mt-8 grid gap-10 lg:grid-cols-2">
-              {/* Left: Features grid(s) */}
-              <div>
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                  <FeatureCard icon="W" title="WhatsApp Reminders" desc="Get multiple reminders on WhatsApp for your future billings of subscriptions." />
-                  <FeatureCard icon="$" title="Track Spending" desc="Keep track of spend on subscriptions with detailed insights." />
-                  <FeatureCard icon="💰" title="Save Money" desc="Automatically identify and cancel unused or costly subscriptions." />
-                  <FeatureCard icon="🧠" title="Smart Decisions" desc="Recommendations that help you decide what to keep or cancel." />
-                </div>
-                <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                  <FeatureCard icon="📝" title="Notes on Cards" desc="Note for every subscription visible on your sub-card." />
-                  <FeatureCard icon="✏️" title="Quick Actions" desc="Edit, mark paid, and delete your data easily." />
-                  <FeatureCard icon="⭐" title="Only Subtracker You Need" desc="The only Subtracker you'll ever need." />
-                  <FeatureCard icon="🚀" title="Just the Best" desc="Just the best." />
-                </div>
-              </div>
+            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              <FeatureCard icon="W" title="WhatsApp Reminders" desc="Get multiple reminders on WhatsApp for your future billings of subscriptions." />
+              <FeatureCard icon="$" title="Track Spending" desc="Keep track of spend on subscriptions with detailed insights." />
+              <FeatureCard icon="💰" title="Save Money" desc="Automatically identify and cancel unused or costly subscriptions." />
+              <FeatureCard icon="🧠" title="Smart Decisions" desc="Recommendations that help you decide what to keep or cancel." />
+            </div>
+            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              <FeatureCard icon="📝" title="Notes on Cards" desc="Note for every subscription visible on your sub-card." />
+              <FeatureCard icon="✏️" title="Quick Actions" desc="Edit, mark paid, and delete your data easily." />
+              <FeatureCard icon="⭐" title="Only Subtracker You Need" desc="The only Subtracker you'll ever need." />
+              <FeatureCard icon="🚀" title="Just the Best" desc="Just the best." />
             </div>
             {/* Full-width blue CTA section */}
             <div className="mt-10 relative -mx-3 bg-[rgb(147,197,253)]">
