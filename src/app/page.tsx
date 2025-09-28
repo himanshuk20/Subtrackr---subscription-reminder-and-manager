@@ -18,7 +18,7 @@ export default function Home() {
         <nav className="flex items-center gap-3">
           <Link href="#features" className="px-3 py-2 rounded-md hover:bg-accent">Features</Link>
           <Link href="/pricing" className="px-3 py-2 rounded-md hover:bg-accent">Pricing</Link>
-          <Link href="#faqs" className="px-3 py-2 rounded-md hover:bg-accent">FAQ</Link>
+          <Link href="/faq" className="px-3 py-2 rounded-md hover:bg-accent">FAQ</Link>
           <Link href="/sign-in" className="px-3 py-2 rounded-md bg-foreground text-background">Sign In</Link>
         </nav>
       </header>
@@ -49,7 +49,7 @@ export default function Home() {
                 </p>
                 <p className="mt-2 text-xs sm:text-sm text-black/80 text-center">
                   <a
-                    href="https://www.globenewswire.com/news-release/2016/03/21/1240985/0/en/Hiatus-Survey-62-of-Consumers-Waste-Money-on-Unwanted-Subscriptions-Because-They-Don-t-Cancel-Automatic-Renewals.html?utm_source=chatgpt.com"
+                    href="https://www.globenewswire.com/news-release/2016/03/21/1240985/0/en/Hiatus-Survey-62-of-Consumers-Waste-Money-on-Unwanted-Subscriptions-Because-They-Don_t-Cancel-Automatic-Renewals.html?utm_source=chatgpt.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline hover:opacity-80"
@@ -106,53 +106,6 @@ export default function Home() {
                   <FeatureCard icon="✏️" title="Quick Actions" desc="Edit, mark paid, and delete your data easily." />
                   <FeatureCard icon="⭐" title="Only Subtracker You Need" desc="The only Subtracker you'll ever need." />
                   <FeatureCard icon="🚀" title="Just the Best" desc="Just the best." />
-                </div>
-              </div>
-
-              {/* Right: FAQs */}
-              <div id="faqs">
-                <h3 className="text-2xl sm:text-3xl font-bold">FAQs</h3>
-                <div className="mt-4 space-y-5">
-                  <div>
-                    <p className="font-semibold">1. What does SubTrackr do?</p>
-                    <p className="opacity-80 text-sm sm:text-base">SubTrackr helps you track all your subscriptions in one place (like Netflix, Spotify, Amazon Prime, etc.). It reminds you before renewal so you never forget to cancel or pay late.</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold">2. How will I get reminders?</p>
-                    <p className="opacity-80 text-sm sm:text-base">Free plan → in-app notifications only.<br/>Pro plan → WhatsApp reminders directly on your phone.</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold">3. Can I add any subscription?</p>
-                    <p className="opacity-80 text-sm sm:text-base">Yes! With SubTrackr, you can manually add any service—streaming, gym, broadband, OTT, insurance, or even rent.</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold">4. Is my data safe?</p>
-                    <p className="opacity-80 text-sm sm:text-base">Absolutely. SubTrackr only stores the subscription details you enter. No card or payment info is saved. All data is secured with modern encryption standards.</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold">5. Does SubTrackr charge my subscriptions automatically?</p>
-                    <p className="opacity-80 text-sm sm:text-base">No. SubTrackr only reminds you. You remain in full control of paying or canceling.</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold">6. How much does SubTrackr cost?</p>
-                    <p className="opacity-80 text-sm sm:text-base">In India: Starting from ₹49/year or ₹179/5 years.<br/>International: Starting from $4.99/year.<br/>We also have a free plan with in-app reminders.</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold">7. What happens if I don't upgrade to Pro?</p>
-                    <p className="opacity-80 text-sm sm:text-base">You'll still get unlimited subscription tracking and free in-app notifications. Pro is only for WhatsApp reminders.</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold">8. Does SubTrackr offer lifetime plans?</p>
-                    <p className="opacity-80 text-sm sm:text-base">Yes. You can choose a one-time payment plan (like ₹399 in India / $24.99 international) and get Pro reminders forever.</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold">9. Can SubTrackr track multiple subscriptions?</p>
-                    <p className="opacity-80 text-sm sm:text-base">Yes! You can add and manage unlimited subscriptions in both Free and Pro plans.</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold">10. Who is SubTrackr for?</p>
-                    <p className="opacity-80 text-sm sm:text-base">SubTrackr is for anyone who wants to avoid wasting money on forgotten subscriptions—students, families, professionals, or businesses.</p>
-                  </div>
                 </div>
               </div>
             </div>
