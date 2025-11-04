@@ -7,21 +7,23 @@ import SubscriptionForm from "@/components/SubscriptionForm";
 import NotificationCenter from "@/components/NotificationCenter";
 import Link from "next/link";
 
+const SEEDED_KEY = "orchids.subscriptions.seeded";
+
 export default function DashboardPage() {
   const { subs, upcoming, add, update, remove, markPaid } = useSubscriptions();
   const [editing, setEditing] = useState<Subscription | null>(null);
   const [showForm, setShowForm] = useState(false);
-  const [seeded, setSeeded] = useState(false);
 
   useEffect(() => {
-    if (!seeded && subs.length === 0) {
+    // Only seed once ever - check localStorage for seeded flag
+    const hasSeeded = localStorage.getItem(SEEDED_KEY);
+    if (!hasSeeded && subs.length === 0) {
       demoSeed((demo) => {
-        // Seed via hook to avoid full page reload flicker
         demo.forEach((d) => add(d as any));
-        setSeeded(true);
       });
+      localStorage.setItem(SEEDED_KEY, "true");
     }
-  }, [seeded, subs.length]);
+  }, [subs.length, add]);
 
   const totalMonthly = useMemo(() => {
     return subs.reduce((acc, s) => {
