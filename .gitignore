@@ -25,6 +25,7 @@
 *.pem
 #environment
 .env
+.env.example
 
 
 # debug
